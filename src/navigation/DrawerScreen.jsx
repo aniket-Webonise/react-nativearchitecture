@@ -1,16 +1,16 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {DrawerActions, NavigationActions} from 'react-navigation';
-import PropTypes from './node_modules/prop-types';
-import React, {Component} from './node_modules/react';
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { DrawerActions, NavigationActions } from "react-navigation";
+import PropTypes from "./node_modules/prop-types";
+import React, { Component } from "./node_modules/react";
 
 class DrawerScreen extends Component {
-  navigateToScreen = (route) => () => {
+  navigateToScreen = route => () => {
     const navigateAction = NavigationActions.navigate({
-      routeName: route,
+      routeName: route
     });
     this.props.navigation.dispatch(navigateAction);
-    this.props.navigation.dispatch(DrawerActions.closeDrawer())
-  }
+    this.props.navigation.dispatch(DrawerActions.closeDrawer());
+  };
 
   render() {
     return (
@@ -18,19 +18,13 @@ class DrawerScreen extends Component {
         <ScrollView>
           <View>
             <View style={styles.menuItem}>
-              <Text onPress={this.navigateToScreen('Home')}>
-                Home
-              </Text>
+              <Text onPress={this.navigateToScreen("Home")}>Home</Text>
             </View>
             <View style={styles.menuItem}>
-              <Text onPress={this.navigateToScreen('About')}>
-                About
-              </Text>
+              <Text onPress={this.navigateToScreen("About")}>About</Text>
             </View>
             <View style={styles.menuItem}>
-              <Text onPress={this.navigateToScreen('Contact')}>
-                Contact
-              </Text>
+              <Text onPress={this.navigateToScreen("Contact")}>Contact</Text>
             </View>
           </View>
         </ScrollView>
@@ -48,18 +42,18 @@ export default DrawerScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
   heading: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    textAlign: "center",
+    margin: 10
   },
   menuItem: {
     padding: 10,
     borderWidth: 0.5,
-    borderColor: '#d6d7da'
+    borderColor: "#d6d7da"
   }
 });
